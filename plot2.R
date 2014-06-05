@@ -25,7 +25,7 @@ feb_data$Sub_metering_3 <- as.numeric(as.character(feb_data$Sub_metering_3))
 feb_data$Voltage <- as.numeric(as.character(feb_data$Voltage))
 feb_data$Global_reactive_power <- as.numeric(as.character(feb_data$Global_reactive_power))
 
-# Make Plot 1
-png('plot1.png')
-hist(feb_data$Global_active_power, xlab = "Global Active Power (kilowatts)", main = "Global Active Power", col = "red")
+# Plot 2
+png('plot2.png')
+plot(feb_data$Time, feb_data$Global_active_power, type = "l", ylab = "Global Active Power (kilowatts)", xlab = "")
 dev.off()

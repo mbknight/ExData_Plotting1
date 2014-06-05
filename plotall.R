@@ -29,3 +29,34 @@ feb_data$Global_reactive_power <- as.numeric(as.character(feb_data$Global_reacti
 png('plot1.png')
 hist(feb_data$Global_active_power, xlab = "Global Active Power (kilowatts)", main = "Global Active Power", col = "red")
 dev.off()
+
+# Plot 2
+png('plot2.png')
+plot(feb_data$Time, feb_data$Global_active_power, type = "l", ylab = "Global Active Power (kilowatts)", xlab = "")
+dev.off()
+
+# Plot 3
+png('plot3.png')
+plot(feb_data$Time, feb_data$Sub_metering_1, type = "n", ylab = "Energy sub metering", xlab = "")
+lines(feb_data$Time, feb_data$Sub_metering_1)
+lines(feb_data$Time, feb_data$Sub_metering_2, col = "red")
+lines(feb_data$Time, feb_data$Sub_metering_3, col = "blue")
+legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lty = 1, col = c("black", "red", "blue"))
+dev.off()
+
+# Plot 4
+png('plot4.png')
+par(mfrow=c(2,2))
+#4.1
+plot(feb_data$Time, feb_data$Global_active_power, type = "l", ylab = "Global Active Power", xlab = "")
+#4.2
+plot(feb_data$Time, feb_data$Voltage, type = "l", ylab = "Voltage", xlab = "datetime")
+#4.3
+plot(feb_data$Time, feb_data$Sub_metering_1, type = "n", ylab = "Energy sub metering", xlab = "")
+lines(feb_data$Time, feb_data$Sub_metering_1)
+lines(feb_data$Time, feb_data$Sub_metering_2, col = "red")
+lines(feb_data$Time, feb_data$Sub_metering_3, col = "blue")
+legend("topright", bty = "n", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lty = 1, col = c("black", "red", "blue"))
+#4.4
+plot(feb_data$Time, feb_data$Global_reactive_power, type = "l", ylab = "Global_reactive_power", xlab = "datetime")
+dev.off()
